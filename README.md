@@ -11,8 +11,8 @@ project_package中的STM32F407项目可以直接下载下来用keil5打开工程
 这里使用的硬件为带FIFO的OV7670、XC7A75T FPGA、STM32F407VET6、240*240的TFT显示屏  
 
 OV7670与stm32f407的其他引脚连接：  
-SIOC--PB5&emsp&emsp&emsp&emspSIOD--PB4  
-VSY--PB3&emsp&emsp&emsp&emspOE--PA8  
-WR--PA11&emsp&emsp&emsp&emspWRST--PA10  
-RCK--PA12&emsp&emsp&emsp&emspRRST--PA9  
-RESET--PC11&emsp&emsp&emsp&emspPWDN--PC10
+SIOC--PB5&nbsp;&nbsp;&nbsp;&nbsp;SIOD--PB4  
+VSY--PB3&nbsp;&nbsp;&nbsp;&nbsp;OE--PA8  
+WR--PA11&nbsp;&nbsp;&nbsp;&nbsp;WRST--PA10  
+RCK--PA12&nbsp;&nbsp;&nbsp;&nbsp;RRST--PA9  
+RESET--PC11&nbsp;&nbsp;&nbsp;&nbsp;PWDN--PC10
