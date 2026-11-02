@@ -8,4 +8,11 @@ project_package中的STM32F407项目可以直接下载下来用keil5打开工程
 电路连接图如下：  
 ![系统硬件连接图](./circuit_connect.png)  
 
-这里使用的硬件为带FIFO的OV7670、XC7A75T FPGA、STM32F407VET6、240*240的TFT显示屏
+这里使用的硬件为带FIFO的OV7670、XC7A75T FPGA、STM32F407VET6、240*240的TFT显示屏  
+
+OV7670与stm32f407的其他引脚连接：  
+SIOC--PB5    SIOD--PB4  
+VSY--PB3     OE--PA8  
+WR--PA11     WRST--PA10  
+RCK--PA12    RRST--PA9  
+RESET--PC11  PWDN--PC10
