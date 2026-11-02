@@ -1,0 +1,49 @@
+# =========================================================
+# 系统时钟 (50MHz 板载有源晶振)
+# =========================================================
+set_property -dict { PACKAGE_PIN Y18 IOSTANDARD LVCMOS33 } [get_ports clk]
+create_clock -period 20.000 -name sys_clk_pin -waveform {0.000 10.000} [get_ports clk]
+
+# =========================================================
+# OV7670 FIFO 读取接口 (分配至 JP6 排针)
+# =========================================================
+# 8-bit 数据线 D0-D7 (对应 JP6 引脚 1 到 8)
+set_property -dict { PACKAGE_PIN J14 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[0]}]  ;# JP6_1  P6IO[0]
+set_property -dict { PACKAGE_PIN H13 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[1]}]  ;# JP6_2  P6IO[1]
+set_property -dict { PACKAGE_PIN H14 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[2]}]  ;# JP6_3  P6IO[2]
+set_property -dict { PACKAGE_PIN J15 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[3]}]  ;# JP6_4  P6IO[3]
+set_property -dict { PACKAGE_PIN F13 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[4]}]  ;# JP6_5  P6IO[4]
+set_property -dict { PACKAGE_PIN E14 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[5]}]  ;# JP6_6  P6IO[5]
+set_property -dict { PACKAGE_PIN F14 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[6]}]  ;# JP6_7  P6IO[6]
+set_property -dict { PACKAGE_PIN H15 IOSTANDARD LVCMOS33 } [get_ports {fifo_d[7]}]  ;# JP6_8  P6IO[7]
+
+# FIFO 读控制信号 (对应 JP6 引脚 9 和 10)
+set_property -dict { PACKAGE_PIN J16 IOSTANDARD LVCMOS33 } [get_ports fifo_rck]   ;# JP6_9  P6IO[8]
+set_property -dict { PACKAGE_PIN F15 IOSTANDARD LVCMOS33 } [get_ports fifo_rrst]  ;# JP6_10 P6IO[9]
+
+# =========================================================
+# STM32 16-bit 像素输出接口 (分配至 JP4 排针)
+# =========================================================
+# 16-bit 数据线 pixel_out[15:0]
+set_property -dict { PACKAGE_PIN V19 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[0]}]   ;# JP4_1  P4IO[0]
+set_property -dict { PACKAGE_PIN W20 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[1]}]   ;# JP4_2  P4IO[1]
+set_property -dict { PACKAGE_PIN AA21 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[2]}]  ;# JP4_3  P4IO[2]
+set_property -dict { PACKAGE_PIN AA20 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[3]}]  ;# JP4_4  P4IO[3]
+set_property -dict { PACKAGE_PIN AB20 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[4]}]  ;# JP4_5  P4IO[4]
+set_property -dict { PACKAGE_PIN Y19 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[5]}]   ;# JP4_6  P4IO[5]
+set_property -dict { PACKAGE_PIN V18 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[6]}]   ;# JP4_7  P4IO[6]
+set_property -dict { PACKAGE_PIN P15 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[7]}]   ;# JP4_8  P4IO[7]
+set_property -dict { PACKAGE_PIN AB18 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[8]}]  ;# JP4_9  P4IO[8]
+set_property -dict { PACKAGE_PIN AA18 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[9]}]  ;# JP4_10 P4IO[9]
+set_property -dict { PACKAGE_PIN M13 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[10]}]  ;# JP4_13 P4IO[10]
+set_property -dict { PACKAGE_PIN N13 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[11]}]  ;# JP4_14 P4IO[11]
+set_property -dict { PACKAGE_PIN T6 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[12]}]   ;# JP4_15 P4IO[12]
+set_property -dict { PACKAGE_PIN U7 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[13]}]   ;# JP4_16 P4IO[13]
+set_property -dict { PACKAGE_PIN V5 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[14]}]   ;# JP4_17 P4IO[14]
+set_property -dict { PACKAGE_PIN W6 IOSTANDARD LVCMOS33 } [get_ports {pixel_out[15]}]   ;# JP4_18 P4IO[15]
+
+# 像素有效标志位 (对应 JP4 引脚 19，接 STM32 PC8)
+set_property -dict { PACKAGE_PIN T4 IOSTANDARD LVCMOS33 } [get_ports pixel_valid]  ;# JP4_19 P4IO[16]
+
+# 系统复位 (使用板载按键 K1，低电平复位)
+set_property -dict { PACKAGE_PIN E3 IOSTANDARD LVCMOS33 } [get_ports reset_n]
